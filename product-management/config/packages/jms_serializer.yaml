@@ -1,0 +1,5 @@
+jms_serializer:
+    handlers:
+        datetime:
+            default_format: "d/m/Y"
+            default_timezone: "UTC"
