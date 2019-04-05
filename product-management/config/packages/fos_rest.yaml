@@ -15,12 +15,12 @@ fos_rest:
     rules:
       - { path: '^/api', priorities: ['json'], fallback_format: 'json' }
       - { path: ^/, priorities: ['html', '*/*'], fallback_format: html, prefer_extension: true }
-# exception:
+#  exception:
 #    enabled: true
 #    codes:
-#      { RestBundle\Exception\ResourceValidationException: 400, \Exception: 500 }
+#      { App\Exception\ResourceValidationException: 400, \Exception: 500 }
 #    messages:
-#      { RestBundle\Exception\ResourceValidationException: true }
+#      { App\Exception\ResourceValidationException: true }
   versioning:
     enabled: true
     resolvers:
