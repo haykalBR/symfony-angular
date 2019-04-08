@@ -1,6 +1,6 @@
-import { Injectable, ɵConsole } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { ProductModule } from '../product/ProductModule';
+import { ProductModule } from '../product/product.module';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -27,6 +27,6 @@ singleProduct(id :number){
   return this.http.get<[ProductModule]>(this.baseUrl+"product/"+id)
 }
 addProduct(prodcut :ProductModule){
-  return this.http.post<[ProductModule]>(this.baseUrl+"new",JSON.stringify(prodcut),this.httpOptions)
+    return this.http.post(this.baseUrl+"new",JSON.stringify(prodcut),this.httpOptions)
 }
 }

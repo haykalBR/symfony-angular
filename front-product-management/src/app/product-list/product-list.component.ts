@@ -1,5 +1,5 @@
 import { Component,OnInit, ɵConsole } from '@angular/core';
-import { ProductModule } from '../product/ProductModule';
+import { ProductModule } from '../product/product.module';
 import { ProductService } from '../Service/product.service';
 import { HttpClient } from '@angular/common/http';
 import {  Router } from '@angular/router';
@@ -33,8 +33,6 @@ export class ProductListComponent implements OnInit {
     }
   //ShowProdcut  
   singleproduct(product :ProductModule):void{
-      //localStorage.removeItem("productdetailes");
-     // localStorage.setItem("productdetailes",product.id.toString())
       this.router.navigate(['product/single/',product.id]);
 
     }

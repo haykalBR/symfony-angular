@@ -23,9 +23,9 @@ export class NewProductComponent implements OnInit {
     return this.formBuilder.group({
       id: [],
       sku: ['', [Validators.required,Validators.minLength(6)]],
-      name: ['', [Validators.required,Validators.minLength(8)]],
+      name: ['', [Validators.required,Validators.minLength(5)]],
       price: ['', Validators.required],
-      amount: ['', [Validators.required,Validators.maxLength(2)]]
+      amount: ['', [Validators.required]]
     });}
     get f() { return this.ProductForm.controls; }
     onSave(){

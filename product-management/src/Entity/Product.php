@@ -58,8 +58,8 @@ class Product
      */
     public function onPrePersist()
     {
-        $this->created_at = new \Date();
-        $this->updated_at = new \Date();
+        $this->created_at = new \DateTime();
+        $this->updated_at = new \DateTime();
     }
 
     /**
@@ -69,7 +69,7 @@ class Product
      */
     public function onPreUpdate()
     {
-        $this->updated_at = new \Date();
+        $this->updated_at = new \DateTime();
     }
 
 

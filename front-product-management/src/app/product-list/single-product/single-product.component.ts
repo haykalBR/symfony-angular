@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ProductModule } from 'src/app/product/ProductModule';
 import { ProductService } from 'src/app/Service/product.service';
 
 @Component({
@@ -16,7 +15,7 @@ export class SingleProductComponent implements OnInit {
               private route:ActivatedRoute,
               private productservice:ProductService
               ) { }
-  product :{};
+  product={};
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
     if(!id){
@@ -26,6 +25,7 @@ export class SingleProductComponent implements OnInit {
     this.productservice.singleProduct(+id)
     .subscribe( data => {
      this.product = data;
+     console.log(data);
       });
     }
 

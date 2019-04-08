@@ -50,8 +50,6 @@ class ProductController extends AbstractFOSRestController
      * @ParamConverter("product", converter="fos_rest.request_body")
      */
     public function addProduct(Product $product ,ObjectManager $manager){
-
-
         $manager->persist($product);
         $manager->flush();
         return new JsonResponse('ok');
