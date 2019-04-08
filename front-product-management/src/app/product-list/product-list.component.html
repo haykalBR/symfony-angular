@@ -1,5 +1,10 @@
 <div class=row>
     <div class="col-sm-12">
+    <button class="btn btn-success" (click)="addProduct()">
+       add Product
+    </button>
+    </div>
+        <div class="col-sm-12">
 <table class="table">
   <thead>
     <tr>
@@ -18,7 +23,11 @@
       <td>{{product.name}}</td>
       <td>{{product.price}}</td>
       <td>{{product.amount}}</td>
-      <td>encore</td>
+      <td>
+          <i class="fa fa-trash-o fa-2x" aria-hidden="true"(click)="removeProdcut(product)"></i>
+          <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+          <i class="fa fa-eye fa-2x" aria-hidden="true"(click)="singleproduct(product)"></i>
+      </td>
     </tr>
   </tbody>
 </table>

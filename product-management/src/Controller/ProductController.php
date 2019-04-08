@@ -8,6 +8,7 @@
 namespace App\Controller;
 use App\Entity\Product;
 use App\Repository\ProductRepository;
+use Doctrine\Common\Persistence\ObjectManager;
 use FOS\RestBundle\Controller\AbstractFOSRestController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -41,7 +42,14 @@ class ProductController extends AbstractFOSRestController
     }
     public function addProduct(){}
     public function editProduct(){}
-    public function RemoveProductByid(){}
-
+    /**
+     * Reomve Product By ID
+     * @Route("/api/remove/{id}",name="removeproduct")
+     */
+    public function RemoveProductByid(Product $product,ObjectManager $manager){
+         $manager->remove($product);
+         $manager->flush();
+        return new JsonResponse('ok');
+    }
 
 }

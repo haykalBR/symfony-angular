@@ -9,7 +9,7 @@ import { SingleProductComponent } from './product-list/single-product/single-pro
 import { NewProductComponent } from './product-list/new-product/new-product.component';
 import { EditProductComponent } from './product-list/edit-product/edit-product.component';
 import { HeaderComponent } from './header/header.component';
-import { ProductService } from './Service/product.service';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
@@ -25,10 +25,10 @@ import { ProductService } from './Service/product.service';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-
+    AngularFontAwesomeModule
   ],
   providers: [
-   // ProductService
+
   ],
   bootstrap: [AppComponent]
 })
