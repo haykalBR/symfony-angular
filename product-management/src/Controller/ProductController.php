@@ -15,6 +15,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\RestBundle\Controller\Annotations as Rest;
+
 class ProductController extends AbstractFOSRestController
 {
     /**
@@ -40,7 +44,16 @@ class ProductController extends AbstractFOSRestController
             ->getQuery()->getSingleResult();
         return new JsonResponse($singleproduct);
     }
-    public function addProduct(){}
+    /**
+     * @Route("/api/new",name="add_question", methods={"POST"})
+     * @Rest\View
+     * @ParamConverter("product", converter="fos_rest.request_body")
+     */
+    public function addProduct(Product $product ,ObjectManager $manager){
+        $manager->persist($product);
+        $manager->flush();
+        return new JsonResponse('ok');
+    }
     public function editProduct(){}
     /**
      * Reomve Product By ID

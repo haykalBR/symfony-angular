@@ -1,3 +1,35 @@
-<p>
-  single-product works!
-</p>
+<div class=row>
+  <div class="col-sm-12">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">{{product.id}}</th>
+    </tr>
+    <tr>
+        <th scope="col">SKU</th>
+        <th scope="col">{{product.sku}}</th>
+   </tr>
+   <tr>
+       <th scope="col">Name</th>
+       <th scope="col">{{product.name}}</th>
+  </tr>
+    <tr>
+       <th scope="col">Price</th>
+       <th scope="col">{{product.price}}</th>
+  </tr>
+  <tr>
+      <th scope="col">Amount</th>
+      <th scope="col">{{product.amount}}</th>
+ </tr>
+ <tr>
+    <th scope="col">Created Date </th>
+    <th scope="col">{{product.created_at.date}}</th>
+</tr>
+  </thead>
+
+</table>
+
+    </div>
+
+</div>
