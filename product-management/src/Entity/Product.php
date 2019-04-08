@@ -37,12 +37,12 @@ class Product
     private $amount;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $created_at;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $updated_at;
 
@@ -58,8 +58,8 @@ class Product
      */
     public function onPrePersist()
     {
-        $this->created_at = new \DateTime();
-        $this->updated_at = new \DateTime();
+        $this->created_at = new \Date();
+        $this->updated_at = new \Date();
     }
 
     /**
@@ -69,7 +69,7 @@ class Product
      */
     public function onPreUpdate()
     {
-        $this->updated_at = new \DateTime();
+        $this->updated_at = new \Date();
     }
 
 
