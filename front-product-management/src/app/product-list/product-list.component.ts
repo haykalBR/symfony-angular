@@ -22,7 +22,8 @@ export class ProductListComponent implements OnInit {
       this.router.navigate(['product/new']);
     }
   //Edit Product  
-    editProduct(){
+    editProduct(product :ProductModule){
+      this.router.navigate(['product/edit/',product.id]);
     }
   //Remove Prodcut
     removeProdcut(product: ProductModule):void{

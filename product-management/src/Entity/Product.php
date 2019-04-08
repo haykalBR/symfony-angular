@@ -69,6 +69,8 @@ class Product
      */
     public function onPreUpdate()
     {
+                $this->created_at = new \DateTime();
+
         $this->updated_at = new \DateTime();
     }
 

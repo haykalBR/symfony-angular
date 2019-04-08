@@ -1,3 +1,70 @@
-<p>
-  edit-product works!
-</p>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h2>Edit Product</h2>
+    <form [formGroup]="EditForm"  (ngSubmit)="OnEdit()" >
+      <div class="form-group">
+        <label for="title">Sku</label>
+        <input type="text" id="sku"
+               class="form-control" formControlName="sku" >
+               <div *ngIf="submitted && f.sku.errors">
+                  <div *ngIf="f.sku.errors.required">
+                    <span style="color: brown">
+                        Label is required
+                  </span>
+                  </div>
+                  <div *ngIf="f.sku.errors.minlength">
+                      <span style="color: brown">
+                           Label must be at least 6 characters
+                      </span>
+                  </div>
+              </div>    
+      </div>
+      <div class="form-group">
+        <label for="author">Name</label>
+        <input type="text" id="name"
+               class="form-control" formControlName="name">
+               <div *ngIf="submitted && f.name.errors">
+                <div *ngIf="f.name.errors.required">
+                  <span style="color: brown">
+                      Label is required
+                </span>
+                </div>
+                <div *ngIf="f.name.errors.minlength">
+                    <span style="color: brown">
+                         Label must be at least 6 characters
+                    </span>
+                </div>
+            </div>   
+      </div>
+      <div class="form-group">
+        <label for="synopsis">Price</label>
+        <input type="text" id="price"
+        class="form-control" formControlName="price">
+        <div *ngIf="submitted && f.price.errors">
+          <div *ngIf="f.price.errors.required">
+            <span style="color: brown">
+                Label is required
+          </span>
+          </div>
+      </div> 
+      </div>
+       <div class="form-group">
+          <label for="synopsis">Amount</label>
+          <input type="text" id="amount"
+          class="form-control" formControlName="amount">
+          <div *ngIf="submitted && f.amount.errors">
+            <div *ngIf="f.amount.errors.required">
+              <span style="color: brown">
+                  Label is required
+            </span>
+            </div>
+        </div>
+        </div>
+      <button class="btn btn-success" 
+              type="submit">Save
+      </button>
+  
+    </form>
+   
+  </div>
+</div>

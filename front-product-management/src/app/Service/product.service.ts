@@ -29,4 +29,8 @@ singleProduct(id :number){
 addProduct(prodcut :ProductModule){
     return this.http.post(this.baseUrl+"new",JSON.stringify(prodcut),this.httpOptions)
 }
+editProduct(prodcut :ProductModule){
+  console.log(JSON.stringify(prodcut));
+  return this.http.put(this.baseUrl+"edit",JSON.stringify(prodcut),this.httpOptions)
+}
 }

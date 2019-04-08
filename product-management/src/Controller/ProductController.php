@@ -45,7 +45,7 @@ class ProductController extends AbstractFOSRestController
         return new JsonResponse($singleproduct);
     }
     /**
-     * @Route("/api/new",name="add_question", methods={"POST"})
+     * @Route("/api/new",name="add_product", methods={"POST"})
      * @Rest\View
      * @ParamConverter("product", converter="fos_rest.request_body")
      */
@@ -54,12 +54,25 @@ class ProductController extends AbstractFOSRestController
         $manager->flush();
         return new JsonResponse('ok');
     }
-    public function editProduct(){}
+    /**
+     * @Route("/api/edit",name="edit_product", methods={"PUT"})
+     * @Rest\View
+     * @ParamConverter("product", converter="fos_rest.request_body")
+     */
+    public function editProduct(Product $product,ObjectManager $manager , ProductRepository $repo){
+       
+    
+        $manager->merge($product);
+        $manager->flush();
+        return new JsonResponse('ok');
+    }
     /**
      * Reomve Product By ID
      * @Route("/api/remove/{id}",name="removeproduct")
      */
     public function RemoveProductByid(Product $product,ObjectManager $manager){
+         
+
          $manager->remove($product);
          $manager->flush();
         return new JsonResponse('ok');
