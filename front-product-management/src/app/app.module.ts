@@ -10,6 +10,8 @@ import { NewProductComponent } from './product-list/new-product/new-product.comp
 import { EditProductComponent } from './product-list/edit-product/edit-product.component';
 import { HeaderComponent } from './header/header.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { ToastrModule } from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,10 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
+
   ],
   providers: [
 
