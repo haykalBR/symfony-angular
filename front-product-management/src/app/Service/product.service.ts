@@ -22,7 +22,7 @@ getProducts() {
   return this.http.get<[ProductModule]>(this.baseUrl+"allProdcuts");
 }
 removeProduct(id :number){
-  return this.http.get<[ProductModule]>(this.baseUrl+"remove/"+id);
+  return this.http.delete<[ProductModule]>(this.baseUrl+"remove/"+id);
   this.getProducts();
 }
 singleProduct(id :number){

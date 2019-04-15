@@ -22,11 +22,11 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
-    this.productservice.singleProduct(+id)
+    this.productservice.singleProduct(id)
     .subscribe( data => {
-      console.log(data);
-      // delete data.created_at
-      // delete data.updated_at
+      delete data.createdAt;
+      delete data.updatedAt;
+      
       this.EditForm.setValue(data);
     
     });

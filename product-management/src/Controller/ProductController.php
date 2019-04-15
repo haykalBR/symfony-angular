@@ -34,15 +34,10 @@ class ProductController extends AbstractFOSRestController
     }
     /**
      * Get Single Product By ID
-     * @Route("/api/product/{id}",name="singleproduct")
+     * @Route("/api/product/{product}",name="singleproduct")
      */
-    public function getProductByid(Product $product,ProductRepository $repo){
-        $singleproduct=$repo->createQueryBuilder('p')
-            ->where("p.id = :id")
-            ->select('p.id,p.sku,p.name,p.price,p.amount,p.created_at,p.updated_at')
-            ->setParameter("id",$product->getId())
-            ->getQuery()->getSingleResult();
-        return new JsonResponse($singleproduct);
+    public function getProductByid(Product $product){
+        return $this->json($product);
     }
     /**
      * @Route("/api/new",name="add_product", methods={"POST"})
@@ -68,7 +63,7 @@ class ProductController extends AbstractFOSRestController
     }
     /**
      * Reomve Product By ID
-     * @Route("/api/remove/{id}",name="removeproduct")
+     * @Route("/api/remove/{id}",name="removeproduct", methods={"DELETE"})
      */
     public function RemoveProductByid(Product $product,ObjectManager $manager){
          
