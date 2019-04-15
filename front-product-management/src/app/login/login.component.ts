@@ -15,11 +15,14 @@ export class LoginComponent implements OnInit {
   }
   postLogin(login,password)
   {
-  if(this.authService.authenticate(login, password)) {
-  this.router.navigateByUrl('/');
-  } else {
-  this.errors = true;
-  }
+    this.authService.authenticate(login, password).subscribe(res => {
+      this.authService.setIsAuthenticated(true, res);
+      this.router.navigateByUrl('/');
+    }, error => {
+      console.log(error);
+      this.errors = true;
+    });
+ 
 
 
   }

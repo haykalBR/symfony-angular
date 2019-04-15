@@ -20,15 +20,9 @@ export class AuthService {
 
   authenticate(login:string, password:string)
   {
-  	/*et payload = {login:login, password:password};
+  	let payload = {login:login, password:password};
 
-  return this.http.post(environment.baseUrl+'login', payload, httpOptions);*/
-
-  if(login === "test" && password === "test") {
-  	this.setIsAuthenticated(true);
-  	return true;
-  } 
-  return false;
+  return this.http.post<string>(environment.baseUrl+'authenticate', payload, this.httpOptions);
   }
 
   getIsAuthenticated()
@@ -45,15 +39,17 @@ export class AuthService {
   return this.isAuthenticated;
   }
 
-  setIsAuthenticated(status:boolean)
+  setIsAuthenticated(status:boolean, token:string)
   {
   this.isAuthenticated = status;
   this.storage.set('isAuthenticated', status);
+  this.storage.set('token', token);
   }
 
   logout()
   {
-  	this.setIsAuthenticated(false);
+  	this.isAuthenticated = false;
     this.storage.remove("isAuthenticated");
+    this.storage.remove("token");
   }
 }
