@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { ProductModule } from '../product/product.module';
-import { Subject } from 'rxjs';
+import { Product } from '../Models/product';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -17,21 +16,21 @@ export class ProductService {
   })
 } 
 constructor(private http: HttpClient) { }
-products: ProductModule[] = [];
+products: Product[] = [];
 getProducts() {
-  return this.http.get<[ProductModule]>(this.baseUrl+"allProdcuts");
+  return this.http.get<[Product]>(this.baseUrl+"allProdcuts");
 }
 removeProduct(id :number){
-  return this.http.delete<[ProductModule]>(this.baseUrl+"remove/"+id);
+  return this.http.delete<[Product]>(this.baseUrl+"remove/"+id);
   this.getProducts();
 }
 singleProduct(id :number){
-  return this.http.get<[ProductModule]>(this.baseUrl+"product/"+id)
+  return this.http.get<[Product]>(this.baseUrl+"product/"+id)
 }
-addProduct(prodcut :ProductModule){
+addProduct(prodcut :Product){
     return this.http.post(this.baseUrl+"new",JSON.stringify(prodcut),this.httpOptions)
 }
-editProduct(prodcut :ProductModule){
+editProduct(prodcut :Product){
   return this.http.put(this.baseUrl+"edit",JSON.stringify(prodcut),this.httpOptions)
 }
 }

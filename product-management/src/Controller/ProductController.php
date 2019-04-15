@@ -26,11 +26,9 @@ class ProductController extends AbstractFOSRestController
      * @Route("/api/allProdcuts",name="allproducts")
      */
     public function getProducts(ProductRepository $repo){
-        $products=$repo->createQueryBuilder('p')
-            ->select('p.id,p.sku,p.name,p.price,p.amount')
-            ->getQuery()->getArrayResult();
-        return new JsonResponse($products);
-
+        
+        $products = $repo->findAll();
+        return $this->json($products);
     }
     /**
      * Get Single Product By ID

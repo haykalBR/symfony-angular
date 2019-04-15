@@ -24,8 +24,8 @@ export class EditProductComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
     this.productservice.singleProduct(id)
     .subscribe( data => {
-      delete data.createdAt;
-      delete data.updatedAt;
+      console.log(data);
+     
       
       this.EditForm.setValue(data);
     
@@ -35,7 +35,9 @@ export class EditProductComponent implements OnInit {
       sku: ['', [Validators.required,Validators.minLength(6)]],
       name: ['', [Validators.required,Validators.minLength(5)]],
       price: ['', Validators.required],
-      amount: ['', [Validators.required]]
+      amount: ['', [Validators.required]],
+      createdAt: [],
+      updatedAt: []
     });
     
   }

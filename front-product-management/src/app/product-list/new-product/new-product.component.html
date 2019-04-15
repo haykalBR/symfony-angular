@@ -8,12 +8,12 @@
                  class="form-control" formControlName="sku" >
                  <div *ngIf="submitted && f.sku.errors">
                     <div *ngIf="f.sku.errors.required">
-                      <span style="color: brown">
+                      <span class="text-danger">
                           Label is required
                     </span>
                     </div>
                     <div *ngIf="f.sku.errors.minlength">
-                        <span style="color: brown">
+                        <span class="text-danger">
                              Label must be at least 6 characters
                         </span>
                     </div>
@@ -25,12 +25,12 @@
                  class="form-control" formControlName="name">
                  <div *ngIf="submitted && f.name.errors">
                   <div *ngIf="f.name.errors.required">
-                    <span style="color: brown">
+                       <span class="text-danger">
                         Label is required
                   </span>
                   </div>
                   <div *ngIf="f.name.errors.minlength">
-                      <span style="color: brown">
+                         <span class="text-danger">
                            Label must be at least 6 characters
                       </span>
                   </div>
@@ -42,7 +42,7 @@
           class="form-control" formControlName="price">
           <div *ngIf="submitted && f.price.errors">
             <div *ngIf="f.price.errors.required">
-              <span style="color: brown">
+                 <span class="text-danger">
                   Label is required
             </span>
             </div>
@@ -54,7 +54,7 @@
             class="form-control" formControlName="amount">
             <div *ngIf="submitted && f.amount.errors">
               <div *ngIf="f.amount.errors.required">
-                <span style="color: brown">
+                   <span class="text-danger">
                     Label is required
               </span>
               </div>
