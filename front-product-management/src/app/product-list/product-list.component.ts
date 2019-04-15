@@ -1,5 +1,5 @@
 import { Component,OnInit, ɵConsole } from '@angular/core';
-import { ProductModule } from '../product/product.module';
+import { Product } from '../Models/product';
 import { ProductService } from '../Service/product.service';
 import { HttpClient } from '@angular/common/http';
 import {  Router } from '@angular/router';
@@ -16,10 +16,11 @@ export class ProductListComponent implements OnInit {
                private router: Router,
                private toastr: ToastrService
                ) { }
-  products:ProductModule[];
+  products:Product[];
  ngOnInit() {
   this.productservice.getProducts()
     .subscribe( data => {
+      console.log(data);
       this.products = data;
     });
   }
@@ -28,11 +29,11 @@ export class ProductListComponent implements OnInit {
       this.router.navigate(['product/new']);
     }
   //Edit Product  
-    editProduct(product :ProductModule){
+    editProduct(product :Product){
       this.router.navigate(['product/edit/',product.id]);
     }
   //Remove Prodcut
-    removeProdcut(product: ProductModule):void{
+    removeProdcut(product: Product):void{
       this.productservice.removeProduct(product.id)
       .subscribe( data => {
         this.products = this.products.filter(u => u !== product);
@@ -41,7 +42,7 @@ export class ProductListComponent implements OnInit {
     });
     }
   //ShowProdcut  
-  singleproduct(product :ProductModule):void{
+  singleproduct(product :Product):void{
       this.router.navigate(['product/single/',product.id]);
 
     }
