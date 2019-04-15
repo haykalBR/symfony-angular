@@ -1,7 +1,13 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li routerLinkActive="active">
+    <li *ngIf="!getAuthStatus()" routerLinkActive="active">
+        <a routerLink="login">Login</a>
+      </li>
+       <li *ngIf="getAuthStatus()" >
+        <a routerLink="" (click)= "logout()">Logout</a>
+      </li>
+      <li *ngIf="getAuthStatus()" routerLinkActive="active">
         <a routerLink="product/list">Products</a>
       </li>
     </ul>

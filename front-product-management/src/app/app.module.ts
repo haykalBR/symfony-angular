@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     SingleProductComponent,
     NewProductComponent,
     EditProductComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
