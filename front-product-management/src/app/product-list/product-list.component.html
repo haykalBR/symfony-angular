@@ -1,11 +1,11 @@
-<div class=row>
-    <div class="col-sm-12">
-    <button class="btn btn-success" (click)="addProduct()">
-       add Product
+<div class="container">
+    <p>
+    <button class="btn btn-success" routerLink="/product/new">
+       Add Product
     </button>
-    </div>
-        <div class="col-sm-12">
-<table class="table">
+    <p>
+        <div class="row col-sm-12">
+<table class="table table-bordered">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -24,9 +24,9 @@
       <td>{{product.price}}</td>
       <td>{{product.amount}}</td>
       <td>
-          <i class="fa fa-trash-o fa-2x" aria-hidden="true"(click)="removeProdcut(product)"></i>
-          <i class="fa fa-pencil fa-2x" aria-hidden="true" (click)="editProduct(product)"></i>
-          <i class="fa fa-eye fa-2x" aria-hidden="true"(click)="singleproduct(product)"></i>
+          <i role="button" class="fa fa-trash-o fa-2x" aria-hidden="true"(click)="removeProdcut(product)"></i>&nbsp;
+          <i role="button" class="fa fa-pencil fa-2x" aria-hidden="true" (click)="editProduct(product)"></i>&nbsp;
+          <i role="button" class="fa fa-eye fa-2x" aria-hidden="true"(click)="singleproduct(product)"></i>
       </td>
     </tr>
   </tbody>

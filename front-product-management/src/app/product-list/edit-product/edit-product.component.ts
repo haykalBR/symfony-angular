@@ -24,6 +24,7 @@ export class EditProductComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
     this.productservice.singleProduct(+id)
     .subscribe( data => {
+      console.log(data);
       // delete data.created_at
       // delete data.updated_at
       this.EditForm.setValue(data);
